@@ -11,8 +11,8 @@ from utils import MONTH_DIR
 
 
 download_csv('algorand', 'usd')
-start_date = '2025-02-01'
-end_date = '2025-02-28'
+start_date = '2025-03-01'
+end_date = '2025-03-31'
 ticker = "AFNUSD=X" #HAFN
 
 stables_dfs = {}
@@ -24,11 +24,11 @@ for stablecoin, stables_id in stables_ids.items():
 
 asas_dfs = {}
 asas_ids = {
-            'ora': 1284444444, 'xalgo': 1134696561, 'niko': 1265975021, 'vote': 452399768, 
-            'talgo': 2537013734, 'tiny': 2200000000, 'gobtc': 386192725, 'monko': 2494786278, 
-            'rio': 2751733, 'avoi': 2320775407, 'opul': 287867876, 'malgo': 1185173782, 
-            'stbl': 465865291, 'alpha': 2726252423, 'gold': 246516580, 'coop': 796425061, 
-            'goeth': 386195940, 'chip': 388592191, 'galgo': 793124631, 'daffir': 1268830233
+            'ora': 1284444444, 'niko': 1265975021, 'talgo': 2537013734, 'vote': 452399768, 
+            'tiny': 2200000000, 'gobtc': 386192725, 'silver': 246519683, 'rio': 2751733, 
+            'stbl': 465865291, 'alpha': 2726252423, 'monko': 2494786278, 'opul': 287867876, 
+            'gold': 246516580, 'chip': 388592191, 'malgo': 1185173782, 'coop': 796425061, 
+            'avoi': 2320775407, 'goeth': 386195940, 'daffir': 1268830233, 'calgo': 2400334372
         }
 
 for asa, asa_id in asas_ids.items():
@@ -37,6 +37,7 @@ for asa, asa_id in asas_ids.items():
 
 stables_final_df = create_combined_df(stables_dfs) 
 asas_final_df = create_combined_df(asas_dfs)
+
 algo_price = pd.read_csv(f'{MONTH_DIR}/algorand_historical_data.csv')
 algo_price['snapped_at'] = pd.to_datetime(algo_price['snapped_at']).dt.date
 
