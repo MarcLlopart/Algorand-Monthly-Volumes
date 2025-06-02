@@ -11,8 +11,8 @@ from utils import MONTH_DIR
 
 
 download_csv('algorand', 'usd')
-start_date = '2025-04-01'
-end_date = '2025-04-30'
+start_date = '2025-05-01'
+end_date = '2025-05-31'
 ticker = "AFNUSD=X" #HAFN
 
 stables_dfs = {}
@@ -23,13 +23,12 @@ for stablecoin, stables_id in stables_ids.items():
     stables_dfs[stablecoin] = get_close_price(start_date, end_date, stables_id)
 
 asas_dfs = {}
-asas_ids = {
-            'ora': 1284444444, 'niko': 1265975021, 'talgo': 2537013734, 'vote': 452399768, 
-            'tiny': 2200000000, 'gobtc': 386192725, 'galgo': 793124631, 'rio': 2751733, 
-            'mooj': 2154668640, 'alpha': 2726252423, 'monko': 2494786278, 'opul': 287867876, 
-            'gold': 246516580, 'chip': 388592191, 'malgo': 1185173782, 'coop': 796425061, 
-            'avoi': 2320775407, 'goeth': 386195940, 'daffir': 1268830233, 'xalgo': 1134696561
-        }
+asas_ids =  {
+    'ora': 1284444444, 'talgo': 2537013734, 'niko': 1265975021, 'vote': 452399768, 'tiny': 2200000000,
+    'alpha': 2726252423, 'monko': 2494786278, 'gobtc': 386192725, 'daffir': 1268830233, 'opul': 287867876,
+    'xalgo': 1134696561, 'coop': 796425061, 'chip': 388592191, 'malgo': 1185173782, 'avoi': 2320775407, 
+    'arbz': 1285492943, 'gora': 1138500612, 'pepe': 1096015467, 'fish': 2667006169, 'goeth': 386195940
+}
 
 for asa, asa_id in asas_ids.items():
     asas_dfs[asa] = get_close_price(start_date, end_date, asa_id)
