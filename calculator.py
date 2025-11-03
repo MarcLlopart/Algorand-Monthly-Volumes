@@ -6,13 +6,13 @@ from datetime import datetime, timedelta, timezone
 import warnings
 from utils import download_csv, date_to_unix_timestamp
 from utils import get_close_price, create_combined_df, multiply_columns
-from utils import get_price_feed, usd_volume
+from utils import get_hafn_vol, usd_volume
 from utils import MONTH_DIR
 
 
 download_csv('algorand', 'usd')
-start_date = '2025-09-01'
-end_date = '2025-09-30'
+start_date = '2025-10-01'
+end_date = '2025-10-31'
 ticker = "AFNUSD=X" #HAFN
 
 stables_dfs = {}
@@ -25,11 +25,11 @@ for stablecoin, stables_id in stables_ids.items():
 
 asas_dfs = {}
 asas_ids = {
-    'hog': 3178895177,      'ora': 1284444444,      'vote': 452399768,      'hay': 3160000000,
-    'talgo': 2537013734,    'finite': 400593267,    'xalgo': 1134696561,    'tiny': 2200000000,
-    'alpha': 2726252423,    'puff': 3196313859,     'vest': 700965019,      'gonna': 2582294183,
-    'gobtc': 386192725,     'busk': 2611535339,     'unit': 3121954282,     'pow': 2994233666,
-    'niko': 1265975021,     'sparky': 3054226103,   'coop': 796425061,      'opul': 287867876
+    'xalgo': 1134696561,    'hog': 3178895177,      'ora': 1284444444,      'vote': 452399768,
+    'talgo': 2537013734,    'gobtc': 386192725,     'hay': 3160000000,      'alpha': 2726252423,
+    'tiny': 2200000000,     'pow': 2994233666,      'opul': 287867876,      'golddao': 1241945177,
+    'niko': 1265975021,     'silver': 246519683,    'coop': 796425061,      'iga': 2635992378,
+    'goeth': 386195940,     'compx': 1732165149,    'fam': 2935126632,      'finite': 400593267
 }
 
 
@@ -71,6 +71,6 @@ algo_usd.to_csv(f'{MONTH_DIR}/Results/algo_usd.csv', index=False)
 asa_usd.to_csv(f'{MONTH_DIR}/Results/asa_final_volumes.csv', index=False)
 stables_usd.to_csv(f'{MONTH_DIR}/Results/stables_final_volumes.csv', index=False)
 
-
-month_data = get_price_feed(ticker, start_date, end_date)
-month_data.to_csv(f'{MONTH_DIR}/Results/HAFN.csv')
+hafn_df = pd.read_csv(f'{MONTH_DIR}/hafn.csv')
+month_data = get_hafn_vol(hafn_df)
+month_data.to_csv(f'{MONTH_DIR}/Results/HAFN.csv', index=False)
