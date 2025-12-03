@@ -5,7 +5,7 @@ import requests
 from datetime import datetime, timedelta, timezone
 import warnings
 
-MONTH_DIR = 'Oct 2025'
+MONTH_DIR = 'Nov 2025'
 
 def download_csv(coin_id, currency):
     """
