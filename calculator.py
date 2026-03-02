@@ -11,13 +11,13 @@ from utils import MONTH_DIR
 
 
 download_csv('algorand', 'usd')
-start_date = '2026-01-01'
-end_date = '2026-01-31'
+start_date = '2026-02-01'
+end_date = '2026-02-28'
 ticker = "AFNUSD=X" #HAFN
 
 stables_dfs = {}
 stables_ids = {'usdc': 31566704, 'usdt': 312769,
-              'eurs': 227855942,'xusd':760037151}
+              'eurs': 227855942}
 
 for stablecoin, stables_id in stables_ids.items():
     stables_dfs[stablecoin] = get_close_price(start_date, end_date, stables_id)
@@ -28,23 +28,23 @@ asas_ids = {
     'gobtc': 386192725,
     'ora': 1284444444,
     'vote': 452399768,
-    'hog': 3178895177,
     'folks': 3203964481,
+    'hog': 3178895177,
     'alpha': 2726252423,
-    'silver': 246519683,
     'talgo': 2537013734,
-    'wbtc': 1058926737,
-    'hay': 3160000000,
+    'silver': 246519683,
     'tiny': 2200000000,
+    'hay': 3160000000,
+    'wbtc': 1058926737,
+    'xalgo': 1134696561,
+    'gold': 246516580,
+    'nova': 3032713424,
     'goeth': 386195940,
     'coop': 796425061,
-    'xalgo': 1134696561,
-    'nugget': 2699078351,
+    'costs': 3433472651,
+    'opul': 287867876,
     'pow': 2994233666,
-    'gonna': 2582294183,
-    'compx': 1732165149,
-    'gold': 246516580,
-    'nova': 3032713424
+    'golddao': 1241945177
 }
 
 
